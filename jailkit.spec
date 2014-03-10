@@ -1,12 +1,12 @@
 Summary:	Utilities to limit user accounts to specific files using chroot()
 Summary(pl.UTF-8):	Narzędzia do zamykania użytkowników w ograniczonym środowisku za pomocą chroot()
 Name:		jailkit
-Version:	2.16
+Version:	2.17
 Release:	1
 License:	BSD modified
 Group:		Applications/System
 Source0:	http://olivier.sessink.nl/jailkit/%{name}-%{version}.tar.bz2
-# Source0-md5:	de43d5ba8aed1159b22b5803e0bbcca8
+# Source0-md5:	b608f10537b3af285efb24acd4e2b6ec
 URL:		http://olivier.sessink.nl/jailkit/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
