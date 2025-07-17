@@ -1,17 +1,17 @@
 Summary:	Utilities to limit user accounts to specific files using chroot()
 Summary(pl.UTF-8):	Narzędzia do zamykania użytkowników w ograniczonym środowisku za pomocą chroot()
 Name:		jailkit
-Version:	2.17
+Version:	2.21
 Release:	1
 License:	BSD modified
 Group:		Applications/System
-Source0:	http://olivier.sessink.nl/jailkit/%{name}-%{version}.tar.bz2
-# Source0-md5:	b608f10537b3af285efb24acd4e2b6ec
-URL:		http://olivier.sessink.nl/jailkit/
+Source0:	https://olivier.sessink.nl/jailkit/%{name}-%{version}.tar.bz2
+# Source0-md5:	d61ea1788a8aa2bf7eeb812e1ac7d316
+URL:		https://olivier.sessink.nl/jailkit/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libcap-devel
-BuildRequires:	python >= 2
+BuildRequires:	python3 >= 1:3.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -47,7 +47,8 @@ z kontami mającymi powłokę zamkniętą w środowisku chroot.
 %{__autoconf}
 %{__autoheader}
 %configure \
-	PROCMAILPATH=/usr/bin/procmail
+	PROCMAILPATH=/usr/bin/procmail \
+	PYTHONINTERPRETER=%{__python3}
 %{__make}
 
 %install
@@ -61,10 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYRIGHT README.txt
+%doc COPYRIGHT README.txt debian/changelog
 %attr(755,root,root) %{_bindir}/jk_uchroot
 %attr(4755,root,root) %{_sbindir}/jk_chrootsh
-%attr(755,root,root) %{_sbindir}/jk_addjailuser
 %attr(755,root,root) %{_sbindir}/jk_check
 %attr(755,root,root) %{_sbindir}/jk_chrootlaunch
 %attr(755,root,root) %{_sbindir}/jk_cp
